@@ -36,6 +36,7 @@ body {
 .kb-logo {
   font-family: "Righteous", cursive;
   margin: 0;
+  font-weight: 400;
 }
 
 .kb-logo.kb-floater {
