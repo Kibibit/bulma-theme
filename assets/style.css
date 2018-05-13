@@ -33,7 +33,8 @@ body {
   opacity: 1;
 }
 
-.kb-logo {
+.kb-logo,
+.title .kb-logo {
   font-family: "Righteous", cursive;
   margin: 0;
   font-weight: 400;
