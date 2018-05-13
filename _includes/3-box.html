@@ -1,0 +1,48 @@
+<div class="tile is-ancestor">
+  <div class="tile is-vertical">
+    <div class="tile">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-primary">
+          <h4 class="title">What went well</h4>
+          <ul>
+            <li>
+              Monitoring quickly alerted us to high rate (reaching ~100%) of HTTP 500s
+            </li>
+            <li>
+              Rapidly distributed updated Shakespeare corpus to all clusters
+            </li>
+          </ul>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-warning">
+          <h4 class="title">Where we got lucky{% include explain.html details="This section is really for near misses, e.g., “The goat teleporter was available for emergency use with other animals despite lack of certification.”" %}</h4>
+          <ul>
+            <li>
+              Mailing list of Shakespeare aficionados had a copy of new sonnet available
+            </li>
+            <li>
+              Server logs had stack traces pointing to file descriptor exhaustion as cause for crash
+            </li>
+            <li>
+              Query-of-death was resolved by pushing new index containing popular search term
+            </li>
+          </ul>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-danger">
+          <h4 class="title">What went wrong</h4>
+          <ul>
+            <li>
+              We’re out of practice in responding to cascading failure
+            </li>
+            <li>
+              We exceeded our availability error budget (by several orders of magnitude) due to the exceptional surge of traffic that essentially all resulted in failures
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

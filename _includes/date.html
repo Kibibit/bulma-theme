@@ -1,0 +1,9 @@
+<div class="field is-grouped is-grouped-multiline">
+  <div class="control">
+    <div class="tags has-addons">
+      {% if include.day %}<span class="tag is-dark">{{ include.day }}</span>{% endif %}
+      {% if include.zone %}<span class="tag is-info">(all times {{ include.zone }})</span>{% endif %}
+      {% if include.location %}<span class="tag is-primary">{{ include.location }}</span>{% endif %}
+    </div>
+  </div>
+</div>

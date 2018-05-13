@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel='stylesheet prefetch' href='//fonts.googleapis.com/css?family=Fredoka+One|Righteous'>
+  <link rel='stylesheet prefetch' href='//cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'>
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script> -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/style.css" />
+</head>
+
+<body>
+  <div id="main" role="main">
+    <div class="container">
+      <div class="content">
+        <section class="section">
+          <h1 class="title"><span class="kb-logo">kibibit</span>: postmortem for {{ page.project | default: '<span class="kb-error">MISSING PROJECT</span>' }}</h1>
+          <p class="subtitle">{{ page.title | default: '<span class="kb-error">MISSING TITLE</span>' }}{% if page.incident %} (incident #{{ page.incident }}){% endif %}</p>
+          <span class="kb-tags tags">
+          {% for author in page.authors %}
+          <span class="tag">{{ author }}</span> {% endfor %}
+          </span>
+          {% if page.date %}
+          <p class="kb-date"><span class="icon has-text-info"><i class="fa fa-clock-o"></i></span>{{ page.date }}</p>{% endif %} {{ content }}
+        </section>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="content">
+        <p class="kb-definitions">
+          <!-- <div class="kb-space"><sup id="det-1"><a>[1]</a></sup> <strong>Too Long; Didn't Read</strong> - Very short description of the incident</div>
+      <div class="kb-space"><sup id="det-2"><a>[2]</a></sup> Impact is the effect on users, revenue, etc.</div>
+      <div class="kb-space"><sup id="det-3"><a>[3]</a></sup> An explanation of the circumstances in which this incident happened. It’s often helpful to use a technique such as the 5 Whys [Ohn88] to understand the contributing factors.</div>
+      <div class="kb-space"><sup id="det-4"><a>[4]</a></sup> A “screenplay” of the incident; use the incident timeline from the Incident Management document to start filling in the postmortem’s timeline, then supplement with other relevant entries.</div>
+      <div class="kb-space"><sup id="det-5"><a>[5]</a></sup> Useful information, links, logs, screenshots, graphs, IRC logs, IM logs, etc.</div>
+      <div class="kb-space"><sup id="det-22"><a>[22]</a></sup> This section is really for near misses, e.g., “The goat teleporter was available for emergency use with other animals despite lack of certification.”</div> -->
+        </p>
+      </div>
+    </div>
+    <div class="kb-rights">Copyright © 2018 Neil Kalman &lt;neilkalman@gmail.com&gt;</div>
+    <div class="kb-logo kb-floater">kibibit</div>
+  </footer>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
+  <script src='//rawgit.com/Kibibit/code-snippets/master/highlight.pack.js'></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.3.0/highlightjs-line-numbers.min.js'></script> -->
+
+  <script src="{{ site.baseurl }}/assets/parse-explanations.js"></script>
+</body>
+
+</html>

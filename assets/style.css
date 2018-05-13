@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+#main {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.footer {
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.kb-definitions.kb-show .kb-space {
+  margin-bottom: 10px;
+}
+
+.kb-definitions {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 250ms ease 300ms;
+}
+
+.kb-definitions.kb-show {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.kb-logo {
+  font-family: "Righteous", cursive;
+  margin: 0;
+}
+
+.kb-logo.kb-floater {
+  font-size: 3rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  color: grey;
+}
+
+.kb-explain {
+  display: inline;
+  opacity: 0;
+  transition: all 300ms ease;
+}
+
+/* h3:hover .kb-explain:not(.kb-show) {
+  opacity: 1;
+}
+
+h3:hover .kb-explain:not(.kb-show) a::before {
+  content: attr(data-details);
+  font-size: 0.6em;
+  margin-left: 1em;
+} */
+
+.kb-explain.kb-show {
+  opacity: 1;
+}
+
+.kb-error {
+  color: hsl(348, 100%, 61%);
+}
+
+.kb-date {
+  margin-top: -1rem;
+  font-size: 0.8rem;
+  color: grey;
+}
+
+table.timeline tbody tr td:first-of-type {
+  font-weight: bold;
+}
+
+.kb-rights {
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  padding: 10px;
+  color: grey;
+}
