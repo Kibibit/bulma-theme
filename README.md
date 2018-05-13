@@ -1,10 +1,31 @@
 # kibibit-bulma
 
-Welcome to your new Jekyll theme! In this directory, you'll find the files you need to be able to package up your theme into a gem. Put your layouts in `_layouts`, your includes in `_includes`, your sass files in `_sass` and any other assets in `assets`.
+this is `kibibit`'s bulma based theme for GitHub Pages. can be used in any jekyll site with the `Local Installation` section.
 
-To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
+This was originally created to have a clean style for postmortems. Available layouts: `default` & `postmortem`
 
-TODO: Delete this and the text above, and describe your gem
+### postmortem layout
+
+the postmortem layout requires some additional variables:
+```yml
+---
+project: achievibit
+title: Postmortem Theme for Jekyll
+date: 31/31/31
+incident: 465
+authors:
+ - Neil Kalman
+ - Or Tichon
+layout: postmortem
+---
+```
+
+## Use on GitHub Pages
+
+In order to use this theme with your GitHub Page, remove the `theme: <...>` line from `_config.yml` and replace it with the following:
+```yml
+remote_theme: Kibibit/bulma-theme
+```
 
 
 ## Installation
