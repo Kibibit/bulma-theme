@@ -24,6 +24,7 @@ body {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
+  padding: 0 5px;
   transition: opacity 250ms ease 300ms;
 }
 
