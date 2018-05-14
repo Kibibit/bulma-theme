@@ -127,7 +127,9 @@ table.timeline tbody tr td:first-of-type {
   position: relative;
 }
 
+/* optional responsive menu behind a menu button */
 .kb-menu .kb-sidemenu-float {
+  display: none;
   position: absolute;
   right: 0;
   top: 0;
@@ -196,13 +198,16 @@ table.timeline tbody tr td:first-of-type {
 }
 
 @media (max-width: 1329x) {
+  .kb-row {
+    flex-direction: column;
+  }
     .kb-row .kb-menu {
-      width: 25%;
+      width: 100%;
       background-color: #FAFAFA;
     }
 
     .kb-row #main {
-      width: 75%;
+      width: 100%;
     }
   }
 
