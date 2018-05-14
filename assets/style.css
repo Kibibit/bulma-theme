@@ -123,6 +123,17 @@ table.timeline tbody tr td:first-of-type {
   background-color: #FAFAFA;
 }
 
+.kb-menu {
+  position: relative;
+}
+
+.kb-menu .kb-sidemenu-float {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
 .kb-row #main {
   width: 75%;
 }
