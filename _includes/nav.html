@@ -23,7 +23,13 @@
       <li><a class="{{ current }}" href="{{ site.baseurl }}{{ entry.url }}">{% if entry.icon %}<i class="fa {{ entry.icon }}" aria-hidden="true"></i>{% endif %}{{ entry.title }}</a>
       <ul>
         {% for sublink in sublinks %}
-        <li><a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
+        {% if sublink.url == page.permalink %}
+            {% assign currentsub = 'is-active' %}
+        {% else %}
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            {% assign currentsub = null %}
+        {% endif %}
+        <li><a class="{{ current }}" href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
         {% endfor %}
       </ul>
       </li>
