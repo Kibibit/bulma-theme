@@ -12,35 +12,38 @@
 
 <!-- Then we build the nav bar. -->
 <div class="kb-menu">
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="{{ site.baseurl }}">
-      <span class="kb-logo kb-header-logo">{{ site.name | default: 'kibibit' }}</span>
-    </a>
-  </div>
-</nav>
-<aside class="menu">
-  <ul class="menu-list">
-  {% for entry in site.data.navigation %}
-      {% if entry.url == current_page %}
-          {% assign current = 'is-active' %}
+  <div class="kb-no-overflow">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{{ site.baseurl }}">
+          <span class="kb-logo kb-header-logo">{{ site.name | default: 'kibibit' }}</span>
+        </a>
+      </div>
+    </nav>
+    <aside class="menu">
+      <ul class="menu-list">
+      {% for entry in site.data.navigation %}
+          {% if entry.url == current_page %}
+              {% assign current = 'is-active' %}
+          {% else %}
+              <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+              {% assign current = null %}
+          {% endif %}
+          {% assign sublinks = entry.sublinks %}
+          {% if sublinks %}
+      <li><a class="{{ current }}" href="{{ site.baseurl }}{{ entry.url }}">{% if entry.icon %}<i class="fa {{ entry.icon }}" aria-hidden="true"></i>{% endif %}{{ entry.title }}</a>
+      <ul>
+        {% for sublink in sublinks %}
+        <li><a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
+        {% endfor %}
+      </ul>
+      </li>
       {% else %}
-          <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
-          {% assign current = null %}
+      <li><a class="{{ current }}" href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></li>
       {% endif %}
-      {% assign sublinks = entry.sublinks %}
-      {% if sublinks %}
-  <li><a class="{{ current }}" href="{{ site.baseurl }}{{ entry.url }}">{% if entry.icon %}<i class="fa {{ entry.icon }}" aria-hidden="true"></i>{% endif %}{{ entry.title }}</a>
-  <ul>
-    {% for sublink in sublinks %}
-    <li><a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
     {% endfor %}
-  </ul>
-  </li>
-  {% else %}
-  <li><a class="{{ current }}" href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></li>
-  {% endif %}
-{% endfor %}
-  </ul>
-</aside>
+      </ul>
+    </aside>
+  </div>
+  <a class="button is-text kb-sidemenu-float"><i class="fa fa fa-bars"></i></a>
 </div>
