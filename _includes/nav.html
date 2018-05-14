@@ -12,7 +12,7 @@
     <aside class="menu">
       <ul class="menu-list">
       {% for entry in site.data.navigation %}
-          {% if entry.id == page.id %}
+          {% if entry.url == page.permalink %}
               {% assign current = 'is-active' %}
           {% else %}
               <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
