@@ -29,7 +29,7 @@
             <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
             {% assign currentsub = null %}
         {% endif %}
-        <li><a class="{{ current }}" href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
+        <li><a class="{{ currentsub }}" href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
         {% endfor %}
       </ul>
       </li>
