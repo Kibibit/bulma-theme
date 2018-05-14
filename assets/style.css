@@ -164,3 +164,15 @@ table.timeline tbody tr td:first-of-type {
 .menu-list a.is-active:hover {
   background-color: #53CFFF;
 }
+
+@media (max-width: 1329x) {
+    .kb-row .kb-menu {
+      width: 25%;
+      background-color: #FAFAFA;
+    }
+
+    .kb-row #main {
+      width: 75%;
+    }
+  }
+
