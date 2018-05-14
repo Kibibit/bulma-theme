@@ -1,4 +1,11 @@
 $(document).ready(function() {
+  anchors.options = {
+    placement: 'left',
+    visible: 'touch'
+  };
+  
+  anchors.add();
+  
   const definitionsElement = $('.kb-definitions');
   $('.kb-explain').each(function(index, block) {
     const expElement = $(block);
