@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel='stylesheet prefetch' href='//fonts.googleapis.com/css?family=Fredoka+One|Righteous'>
+  <link rel='stylesheet prefetch' href='//cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/style.css" />
+</head>
+
+<body>
+  <div class="kb-row">
+  {% include nav.html context="/" %}
+  <div id="main" role="main">
+    <div class="container">
+    <div class="content">
+      <section class="section">
+        {{ content }}
+      </section>
+    </div>
+  </div>
+</div>
+</div>
+  <footer class="footer">
+    <div class="container">
+      <div class="content">
+        <p class="kb-definitions">
+        </p>
+      </div>
+    </div>
+    <div class="kb-rights">Copyright © 2018 Neil Kalman &lt;neilkalman@gmail.com&gt;</div>
+    <div class="kb-logo kb-floater">kibibit</div>
+  </footer>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+  <script src="{{ site.baseurl }}/assets/parse-explanations.js"></script>
+</body>
+
+</html>
