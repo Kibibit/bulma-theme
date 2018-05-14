@@ -20,7 +20,7 @@
           {% endif %}
           {% assign sublinks = entry.sublinks %}
           {% if sublinks %}
-      <li><a class="{{ current }}" href="{{ site.baseurl }}{{ entry.url }}">{% if entry.icon %}<i class="fa {{ entry.icon }}" aria-hidden="true"></i>{% endif %}{{ entry.title }}</a>
+      <li><a class="{{ current }}" href="{{ site.baseurl }}{{ entry.url }}">{% if entry.icon %}<i class="fa {{ entry.icon }}" aria-hidden="true"></i>{% endif %}{% if entry.incident %}{{ entry.incident | prepend: '000' | slice: -3, 3 }} - {% endif %}{{ entry.title }}</a>
       <ul>
         {% for sublink in sublinks %}
         {% if sublink.url == page.permalink %}
@@ -29,7 +29,7 @@
             <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
             {% assign currentsub = null %}
         {% endif %}
-        <li><a class="{{ currentsub }}" href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
+        <li><a class="{{ currentsub }}" href="{{ site.baseurl }}{{ sublink.url }}">{% if sublink.icon %}<i class="fa {{ sublink.icon }}" aria-hidden="true"></i>{% endif %}{% if sublink.incident %}{{ sublink.incident | prepend: '000' | slice: -3, 3 }} - {% endif %}{{ sublink.title }}</a></li>
         {% endfor %}
       </ul>
       </li>
