@@ -1,9 +1,4 @@
 $(document).ready(function() {
-  anchors.options = {
-    placement: 'left',
-    visible: 'touch'
-  };
-  
   anchors.add();
   
   const definitionsElement = $('.kb-definitions');
