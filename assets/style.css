@@ -197,17 +197,18 @@ aside.menu i.fa {
   background-color: #53CFFF;
 }
 
-@media (max-width: 1329x) {
+@media screen and (max-width: 1329x) {
   .kb-row {
     flex-direction: column;
   }
-    .kb-row .kb-menu {
-      width: 100%;
-      background-color: #FAFAFA;
-    }
 
-    .kb-row #main {
-      width: 100%;
-    }
+  .kb-row .kb-menu {
+    width: 100%;
+    background-color: #FAFAFA;
   }
+
+  .kb-row #main {
+    width: 100%;
+  }
+}
 
