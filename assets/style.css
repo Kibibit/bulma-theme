@@ -132,6 +132,25 @@ table.timeline tbody tr td:first-of-type {
   right: 0;
   top: 0;
   transform: translate3d(100%, 0, 0);
+  height: 50px;
+  width: 78px;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: all 250ms;
+  z-index: 3;
+}
+
+.kb-menu .kb-sidemenu-float i.is-hide-sidemenu {
+  display: none;
+}
+
+.kb-menu .kb-sidemenu-float:hover i.is-open-sidemenu {
+  display: none;
+}
+
+
+.kb-menu .kb-sidemenu-float:hover i.is-hide-sidemenu {
+  display: visible;
 }
 
 .kb-row #main {
