@@ -164,7 +164,7 @@ table.timeline tbody tr td:first-of-type {
   width: 100%;
 }
 
-.kb-row .kb-menu .menu i {
+aside.menu i.fa {
   margin-right: 5px;
 }
 
