@@ -1,18 +1,3 @@
-@media (max-width: 1280px) {
-  .kb-row {
-    flex-direction: column;
-  }
-
-  .kb-row .kb-menu {
-    width: 100%;
-    background-color: #FAFAFA;
-  }
-
-  .kb-row #main {
-    width: 100%;
-  }
-}
-
 body {
   display: flex;
   flex-direction: column;
@@ -211,5 +196,20 @@ aside.menu i.fa {
 
 .menu-list a.is-active:hover {
   background-color: #53CFFF;
+}
+
+@media (max-width: 1280px) {
+  .kb-row {
+    flex-direction: column;
+  }
+
+  .kb-row .kb-menu {
+    width: 100%;
+    background-color: #FAFAFA;
+  }
+
+  .kb-row #main {
+    width: 100%;
+  }
 }
 
