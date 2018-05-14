@@ -30,15 +30,15 @@
       {% endif %}
       {% assign sublinks = entry.sublinks %}
       {% if sublinks %}
-  <li><a class="{{ current }}" href="{{ entry.url }}">{% if entry.icon %}<i class="fa {{ entry.icon }}" aria-hidden="true"></i>{% endif %}{{ entry.title }}</a>
+  <li><a class="{{ current }}" href="{{ site.baseurl }}{{ entry.url }}">{% if entry.icon %}<i class="fa {{ entry.icon }}" aria-hidden="true"></i>{% endif %}{{ entry.title }}</a>
   <ul>
     {% for sublink in sublinks %}
-    <li><a href="{{ sublink.url }}">{{ sublink.title }}</a></li>
+    <li><a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
     {% endfor %}
   </ul>
   </li>
   {% else %}
-  <li><a class="{{ current }}" href="{{ entry.url }}">{{ entry.title }}</a></li>
+  <li><a class="{{ current }}" href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></li>
   {% endif %}
 {% endfor %}
   </ul>
