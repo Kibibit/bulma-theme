@@ -5,6 +5,27 @@ body {
   min-height: 100vh;
 }
 
+.kb-floating-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.button.is-text.kb-back {
+  height: 50px;
+  width: 78px;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: all 250ms;
+}
+
+.button.is-text.kb-back:hover {
+  transform: translate3d(5px, 0px, 0px);
+  background-color: transparent;
+  color: #209CEE;
+}
+
 #main {
   flex-grow: 1;
   flex-shrink: 0;
@@ -90,4 +111,56 @@ table.timeline tbody tr td:first-of-type {
   left: 0;
   padding: 10px;
   color: grey;
+}
+
+.kb-row {
+  display: flex;
+  flex-grow: 1;
+}
+
+.kb-row .kb-menu {
+  width: 25%;
+  background-color: #FAFAFA;
+}
+
+.kb-row #main {
+  width: 75%;
+}
+
+.kb-row .container {
+  max-width: 100%;
+  width: 100%;
+}
+
+.kb-row .kb-menu .menu i {
+  margin-right: 5px;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+.navbar a.navbar-item:hover {
+  color: #209CEE;
+}
+
+.kb-header-logo {
+  font-size: 2rem;
+}
+
+.menu-list a,
+.navbar a.navbar-item {
+  transition: all 250ms;
+}
+
+.menu-list a:hover {
+  color: #209CEE;
+}
+
+.menu-list a.is-active {
+  background-color: #209CEE;
+}
+
+.menu-list a.is-active:hover {
+  background-color: #53CFFF;
 }

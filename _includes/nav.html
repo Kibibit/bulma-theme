@@ -1,0 +1,46 @@
+<!-- This finds the current page so it can be highlighted. -->
+
+{% for entry in site.data.navigation %}
+{% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
+    {% if fullurl == page.url %}
+        {% assign current_page = fullurl %}
+        {% break %}
+    {% elsif page.url contains fullurl %}
+        {% assign current_page = fullurl %}
+    {% endif %}
+{% endfor %}
+
+<!-- Then we build the nav bar. -->
+<div class="kb-menu">
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ site.url }}">
+      <span class="kb-logo kb-header-logo">{{ site.name | default: 'kibibit' }}</span>
+    </a>
+  </div>
+</nav>
+<aside class="menu">
+  <ul class="menu-list">
+  {% for entry in site.data.navigation %}
+      {% if entry.url == current_page %}
+          {% assign current = 'is-active' %}
+      {% else %}
+          <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+          {% assign current = null %}
+      {% endif %}
+      {% assign sublinks = entry.sublinks %}
+      {% if sublinks %}
+  <li><a class="{{ current }}" href="{{ entry.url }}">{% if entry.icon %}<i class="fa {{ entry.icon }}" aria-hidden="true"></i>{% endif %}{{ entry.title }}</a>
+  <ul>
+    {% for sublink in sublinks %}
+    <li><a href="{{ sublink.url }}">{{ sublink.title }}</a></li>
+    {% endfor %}
+  </ul>
+  </li>
+  {% else %}
+  <li><a class="{{ current }}" href="{{ entry.url }}">{{ entry.title }}</a></li>
+  {% endif %}
+{% endfor %}
+  </ul>
+</aside>
+</div>
