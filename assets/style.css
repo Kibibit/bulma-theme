@@ -263,7 +263,6 @@ aside.menu i.fa {
 
 .menu-list a.is-active {
   background-color: var(--main-color);
-  -webkit-transition: -webkit-filter 250s;
 }
 
 .menu-list a.is-active:hover {
