@@ -61,7 +61,8 @@ function activateSmoothScroll() {
         // Does a scroll target exist?
         if (target.length) {
           // Only prevent default if animation is actually gonna happen
-          event.preventDefault();
+          // commenting out to make url change. good?
+          // event.preventDefault();
           $('html, body').animate({
             scrollTop: target.offset().top
           }, 1000, function() {
