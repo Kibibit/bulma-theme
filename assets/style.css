@@ -1,3 +1,10 @@
+.kb-theme-selector {
+  z-index: 5;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 body {
   --main-color: #209CEE;
   display: flex;
