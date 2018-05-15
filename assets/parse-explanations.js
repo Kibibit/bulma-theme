@@ -108,7 +108,7 @@ function classIsLanguage(className) {
 
 function toggleDarkTheme() {
   const themeLink = document.getElementById('bulma-theme');
-  const dark = '//unpkg.com/bulmaswatch/cyborg/bulmaswatch.min.css';
+  const dark = '//unpkg.com/bulmaswatch/superhero/bulmaswatch.min.css';
   const light = '//unpkg.com/bulmaswatch/default/bulmaswatch.min.css';
   
   if (themeLink.href.includes(light)) {
