@@ -4,10 +4,12 @@ body.kb-dark-theme .kb-row .kb-menu {
 
 body.kb-dark-theme #kb-moon {
   background-color: var(--main-color);
+  color: white;
 }
 
 body #kb-sun {
   background-color: var(--main-color);
+  color: white;
 }
 
 .kb-theme-selector {
