@@ -111,7 +111,7 @@ function toggleDarkTheme() {
   const dark = '//unpkg.com/bulmaswatch/cyborg/bulmaswatch.min.css';
   const light = '//unpkg.com/bulmaswatch/default/bulmaswatch.min.css';
   
-  if (themeLink.href === light) {
+  if (themeLink.href.includes(light)) {
     themeLink.href = dark;
     document.body.classList.add('kb-dark-theme');
   } else {
