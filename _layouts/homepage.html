@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/style.css" />
 </head>
 
-<body>
+<body {% if site.mainColor %}style="--main-color: {{ site.mainColor }}" {% endif %}>
   <div class="kb-row">
   {% include nav.html context="/" %}
   <div id="main" role="main">
