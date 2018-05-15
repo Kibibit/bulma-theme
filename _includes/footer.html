@@ -5,7 +5,8 @@
       </p>
     </div>
   </div>
-  {% if site.copyright %}<div class="kb-rights">Copyright © {{ 'now' | date: "%Y" }} {{ site.copyright }}</div>{% endif %}
-  {% if site.logo %}<div class="kb-floater"><img src="{{ site.logo }}"></div>
+  {% if site.copyright %}<div class="kb-rights kb-on-right">Copyright © {{ 'now' | date: "%Y" }} {{ site.copyright }}</div>{% endif %}
+  <div class="kb-rights">Theme Copyright © {{ 'now' | date: "%Y" }} neilkalman@gmail.com</div>
+  {% if site.logo %}<div class="kb-logo kb-floater"><img src="{{ site.logo }}"></div>
   {% else %}<div class="kb-logo kb-floater">{{ site.company | default: 'kibibit' }}</div>{% endif %}
 </footer>
