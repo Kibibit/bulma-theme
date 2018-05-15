@@ -1,3 +1,34 @@
+.content pre code table {
+  width: auto;
+}
+
+.content pre code table td,
+.content pre code table th {
+  border: none;
+  border-width: 0;
+  padding: 0;
+  vertical-align: initial;
+}
+
+td.hljs-ln-numbers {
+  width: 35px;
+}
+
+td.hljs-ln-code {
+  margin-left: 5px; 
+}
+
+.kb-show-line-numbers pre.highlight:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: calc(35px + 1.5em + 0.5em);
+  background: rgba(200, 200, 200, 0.5);
+  z-index: 1;
+}
+
 input {
   margin-right: 10px;
 }
