@@ -105,3 +105,17 @@ function kbCodeSnippet() {
 function classIsLanguage(className) {
   return className.startsWith('language-');
 }
+
+function toggleDarkTheme() {
+  const themeLink = document.getElementById('bulma-theme');
+  const dark = '//unpkg.com/bulmaswatch/cyborg/bulmaswatch.min.css';
+  const light = '//unpkg.com/bulmaswatch/default/bulmaswatch.min.css';
+  
+  if (themeLink.href === light) {
+    themeLink.href = dark;
+    document.body.classList.add('kb-dark-theme');
+  } else {
+    themeLink.href = light;
+    document.body.classList.remove('kb-dark-theme');
+  }
+}
