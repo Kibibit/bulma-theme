@@ -18,6 +18,10 @@ td.hljs-ln-code {
   margin-left: 5px; 
 }
 
+.kb-show-line-numbers pre.highlight {
+  position: relative;
+}
+
 .kb-show-line-numbers pre.highlight:before {
   content: '';
   position: absolute;
