@@ -1,3 +1,7 @@
+input {
+  margin-right: 10px;
+}
+
 .anchorjs-link {
   transition: opacity 250ms;
 }
