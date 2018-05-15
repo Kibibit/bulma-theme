@@ -7,8 +7,18 @@ h2,
 h3,
 h4,
 h5 {
-  display: inline-block;
-  margin-right: auto;
+ transition: border 250ms;
+ border-left: #209CEE 0px solid; 
+}
+
+h1:focus,
+h2:focus,
+h3:focus,
+h4:focus,
+h5:focus {
+    outline: none;
+    border-left: #209CEE 4px solid;
+    padding-left: 4px;
 }
 
 body {
