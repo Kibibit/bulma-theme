@@ -7,8 +7,9 @@ h2,
 h3,
 h4,
 h5 {
- transition: border 250ms;
- border-left: #209CEE 0px solid; 
+ transition: border 250ms, padding 250ms;
+ border-left: #209CEE 0px solid;
+  padding-left: 0px;
 }
 
 h1:focus,
