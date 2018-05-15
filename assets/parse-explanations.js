@@ -95,6 +95,10 @@ function kbCodeSnippet() {
         // hightlight code (auto detect if needed)
         hljs.highlightBlock(innerCode);
       }
+    
+      if (hljs.lineNumbersBlock && codeElement.hasClass('kb-show-line-numbers')) {
+        hljs.lineNumbersBlock(innerCode);
+      }
   });
 }
 
