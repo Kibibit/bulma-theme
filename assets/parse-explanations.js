@@ -1,6 +1,8 @@
 $(document).ready(function() {
   anchors.add();
   
+  kbCodeSnippet();
+  
   const definitionsElement = $('.kb-definitions');
   $('.kb-explain').each(function(index, block) {
     const expElement = $(block);
@@ -80,4 +82,22 @@ function activateSmoothScroll() {
         }
       }
     });
+}
+
+function kbCodeSnippet() {
+  $('.highlighter-rouge').each(function (i, block) {
+    const codeElement = $(block);
+    const lang = (_.find(block.classList, classIsLanguage) || '').replace('language-', '');
+
+    const innerCode = codeElement.find('pre code').addClass(lang)[0];
+
+      if (innerCode) {
+        // hightlight code (auto detect if needed)
+        hljs.highlightBlock(innerCode);
+      }
+  });
+}
+
+function classIsLanguage(className) {
+  return className.startsWith('language-');
 }
