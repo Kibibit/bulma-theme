@@ -7,7 +7,7 @@ body.kb-dark-theme #kb-moon {
   color: white;
 }
 
-body #kb-sun {
+body:not(.kb-dark-theme) #kb-sun {
   background-color: var(--main-color);
   color: white;
 }
