@@ -261,16 +261,12 @@ aside.menu i.fa {
   transition: all 250ms;
 }
 
-.menu-list a:hover {
-  color: var(--main-color);
-}
-
 .menu-list a.is-active {
   background-color: var(--main-color);
 }
 
 .menu-list a.is-active:hover {
-  background-color: #53CFFF;
+  filter: brightness(50%);
 }
 
 .navbar {
