@@ -14,8 +14,8 @@ td.hljs-ln-numbers {
   width: 35px;
 }
 
-td.hljs-ln-code {
-  margin-left: 5px; 
+.content pre code table td, .content pre code table th.hljs-ln-code {
+  padding-left: 5px; 
 }
 
 .kb-show-line-numbers pre.highlight {
