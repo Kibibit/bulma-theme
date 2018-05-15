@@ -2,6 +2,14 @@ body.kb-dark-theme .kb-row .kb-menu {
   background-color: #363636;
 }
 
+body.kb-dark-theme #kb-moon {
+  background-color: var(--main-color);
+}
+
+body #kb-sun {
+  background-color: var(--main-color);
+}
+
 .kb-theme-selector {
   z-index: 5;
   position: absolute;
