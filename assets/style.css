@@ -269,3 +269,7 @@ aside.menu {
 .hljs {
       background: transparent;
 }
+
+.content .highlighter-rouge:not(:last-child) {
+  margin-bottom: 1em;
+}
