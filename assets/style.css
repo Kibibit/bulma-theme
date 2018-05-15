@@ -1,3 +1,7 @@
+.anchorjs-link {
+  transition: opacity 250ms;
+}
+
 h1,
 h2,
 h3,
