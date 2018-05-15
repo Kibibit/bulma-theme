@@ -13,6 +13,7 @@
 </head>
 
 <body {% if site.mainColor %}style="--main-color: {{ site.mainColor }}" {% endif %}>
+  {% include dark-theme.html %}
   <div class="kb-row">
   {% include nav.html context="/" %}
   <div id="main" role="main">
