@@ -138,6 +138,11 @@ table.timeline tbody tr td:first-of-type {
   color: grey;
 }
 
+.kb-rights.kb-on-right {
+  left: auto;
+  right: 0;
+}
+
 .kb-row {
   display: flex;
   flex-grow: 1;
