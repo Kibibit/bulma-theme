@@ -1,3 +1,11 @@
+body {
+  --main-color: #209CEE;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
 .content pre code table {
   width: auto;
 }
@@ -49,7 +57,7 @@ h3,
 h4,
 h5 {
  transition: border 250ms, padding 250ms;
- border-left: #209CEE 0px solid;
+ border-left: var(--main-color) 0px solid;
   padding-left: 0px;
 }
 
@@ -59,15 +67,8 @@ h3:focus,
 h4:focus,
 h5:focus {
     outline: none;
-    border-left: #209CEE 4px solid;
+    border-left: var(--main-color) 4px solid;
     padding-left: 4px;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  min-height: 100vh;
 }
 
 .kb-floating-back {
@@ -88,7 +89,7 @@ body {
 .button.is-text.kb-back:hover {
   transform: translate3d(5px, 0px, 0px);
   background-color: transparent;
-  color: #209CEE;
+  color: var(--main-color);
 }
 
 #main {
@@ -244,7 +245,7 @@ aside.menu i.fa {
 }
 
 .navbar a.navbar-item:hover {
-  color: #209CEE;
+  color: var(--main-color);
 }
 
 .kb-header-logo {
@@ -257,11 +258,11 @@ aside.menu i.fa {
 }
 
 .menu-list a:hover {
-  color: #209CEE;
+  color: var(--main-color);
 }
 
 .menu-list a.is-active {
-  background-color: #209CEE;
+  background-color: var(--main-color);
 }
 
 .menu-list a.is-active:hover {
