@@ -1,44 +1,88 @@
 importScripts('localforage.min.js');
 
-self.onmessage = function(msg) {
-  if (!msg.data.theme) {
-    return;
-  }
+(function() {
 
-  localforage.setItem('theme', msg.data.theme);
-}
+    // Update 'version' if you need to refresh the cache
+    var staticCacheName = 'static';
+    var version = 'v1::';
 
-this.addEventListener('install', function(event) {
-  console.log('[SW]: installing....');
-});
+    // Store core files in a cache (including a page to display when offline)
+    function updateStaticCache() {
+        return caches.open(version + staticCacheName)
+            .then(function (cache) {
+                return cache.addAll([]);
+            });
+    };
 
-this.addEventListener('fetch', function(event) {
-  console.log(event.request.url);
+    self.addEventListener('install', function (event) {
+        event.waitUntil(updateStaticCache());
+    });
+  
+    self.onmessage = function(msg) {
+      if (!msg.data.theme) {
+        return;
+      }
 
-  if (event.request.url.contains('/bulmaswatch/')) {
-    return localforage.getItem('theme')
-      .then(function(theme) {
-        if (theme === 'kb-dark-theme') {
+      localforage.setItem('theme', msg.data.theme);
+    }
 
-          let darkThemeRequest = new Request(request.url.replace('bulmaswatch/default/', 'bulmaswatch/superhero/'), {
-            method: request.method,
-            headers: request.headers,
-            mode: 'same-origin',
-            credentials: request.credentials,
-            redirect: 'manual'
-          });
+    self.addEventListener('activate', function (event) {
+        event.waitUntil(
+            caches.keys()
+                .then(function (keys) {
+                    // Remove caches whose name is no longer valid
+                    return Promise.all(keys
+                        .filter(function (key) {
+                          return key.indexOf(version) !== 0;
+                        })
+                        .map(function (key) {
+                          return caches.delete(key);
+                        })
+                    );
+                })
+        );
+    });
 
-          return fetch(darkThemeRequest);
+    self.addEventListener('fetch', function (event) {
+        var request = event.request;
+        // Always fetch non-GET requests from the network
+        if (request.method !== 'GET') {
+            event.respondWith(
+                fetch(request)
+                    .catch(function () {
+                        return caches.match('/offline.html');
+                    })
+            );
+            return;
         }
 
-        return fetch(event.request);
-      })
+        // For HTML requests, try the network first, fall back to the cache, finally the offline page
+        if (request.headers.get('Accept').indexOf('text/html') !== -1) {
+            event.respondWith(
+                Promise.resolve()
+                  .then(() => request.url.contains('/bulmaswatch/'))
+                  .then((shouldChange) => shouldChange ? localforage.getItem('theme').then((theme) => createNewThemeRequest(theme, request)) : request)
+                  .then((newRequest) => fetch(request));
+            );
+            return;
+        }
+    });
+
+})();
+
+function createNewThemeRequest(theme, request) {
+  if (theme === 'kb-dark-theme') {
+
+    let darkThemeRequest = new Request(request.url.replace('bulmaswatch/default/', 'bulmaswatch/superhero/'), {
+      method: request.method,
+      headers: request.headers,
+      mode: 'same-origin',
+      credentials: request.credentials,
+      redirect: 'manual'
+    });
+
+    return darkThemeRequest;
   }
-});
 
-// An event listener for the 'activate' functionality that
-// goes along with Service Worker registration.
-
-this.addEventListener('activate', function activator(event) {
-  console.log('[SW]: activate!');
-});
+  return request;
+}
