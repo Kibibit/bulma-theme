@@ -114,8 +114,10 @@ function toggleDarkTheme() {
   if (themeLink.href.includes(light)) {
     themeLink.href = dark;
     document.body.classList.add('kb-dark-theme');
+    localStorage.setItem('theme', 'kb-dark-theme');
   } else {
     themeLink.href = light;
     document.body.classList.remove('kb-dark-theme');
+    localStorage.removeItem("theme");
   }
 }
