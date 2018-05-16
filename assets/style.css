@@ -1,13 +1,13 @@
-body.kb-dark-theme .kb-row .kb-menu {
+html.kb-dark-theme .kb-row .kb-menu {
   background-color: #2b3e50;
 }
 
-body.kb-dark-theme #kb-moon {
+html.kb-dark-theme #kb-moon {
   background-color: var(--main-color);
   color: white;
 }
 
-body:not(.kb-dark-theme) #kb-sun {
+html:not(.kb-dark-theme) #kb-sun {
   background-color: var(--main-color);
   color: white;
 }
