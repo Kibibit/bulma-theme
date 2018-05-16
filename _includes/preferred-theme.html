@@ -1,0 +1,11 @@
+<script>
+  const theme = localStorage.getItem("theme");
+  const themeLink = document.getElementById('bulma-theme');
+  const dark = '//unpkg.com/bulmaswatch/superhero/bulmaswatch.min.css';
+  
+  if (theme === 'kb-dark-theme') {
+    themeLink.href = dark;
+    document.body.classList.add('kb-dark-theme');
+    localStorage.setItem('theme', 'kb-dark-theme');
+  }
+</script>
