@@ -114,13 +114,15 @@ function toggleDarkTheme() {
   localforage.getItem('theme')
     .then((theme) => theme === 'kb-dark-theme')
     .then((shouldChangeToWhite) => {
-      if (shouldChangeToWhite) {
-        themeLink.href = dark;
-      } else {
-        themeLink.href = light;
-      }
+      shouldChangeToWhite ? localforage.removeItem("theme") : localforage.setItem('theme', 'kb-dark-theme');
     
       return shouldChangeToWhite;
     })
-    .then((shouldChangeToWhite) => shouldChangeToWhite ? localforage.removeItem("theme") : localforage.setItem('theme', 'kb-dark-theme'))
+    .then((shouldChangeToWhite) => {
+      if (shouldChangeToWhite) {
+        themeLink.href = light;
+      } else {
+        themeLink.href = dark;
+      }
+    })
 }
