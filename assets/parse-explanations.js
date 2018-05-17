@@ -139,7 +139,7 @@ function toggleDarkTheme() {
         styleLink.href = styleLink.href.replace('kb-style', 'kb-dark-style');
       }
     })
-    .then(delayPromise(500))
+    .then(delayPromise(1000))
     .then(() => document.body.style.opacity = 1);
 }
 
