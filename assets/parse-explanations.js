@@ -148,7 +148,7 @@ function toggleDarkTheme() {
 
 function checkTheme(linkElement, darkIndicator) {
   if (location.protocol === 'https:') {
-    return ocalforage.getItem('theme');
+    return localforage.getItem('theme');
   } else {
     let isDarkTheme = linkElement.href.indexOf(darkIndicator) >= 0;
     return Promise.resolve(isDarkTheme ? 'kb-dark-theme' : 'kb-light-theme');
