@@ -6,11 +6,4 @@
         console.log("Service Worker Registered");
       });
   }
-  
-  localforage.getItem('theme')
-    .then((theme) => {
-      if (theme === 'kb-dark-theme') {
-        document.documentElement.classList.add(theme);
-      }
-    });
 </script>
