@@ -351,4 +351,8 @@ aside.menu {
   footer.footer {
     background:transparent;
   }
+  
+  .kb-theme-selector {
+    display: none;
+  }
 }
