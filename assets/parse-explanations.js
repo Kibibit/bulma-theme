@@ -114,7 +114,7 @@ function toggleDarkTheme() {
   const styleLink = document.getElementById('kb-style');
   const highlightStyleLink = document.getElementById('kb-highlight');
   
-  checkTheme(dark)
+  checkTheme(themeLink, dark)
     .then((theme) => theme === 'kb-dark-theme')
     .then((shouldChangeToWhite) => {
       shouldChangeToWhite ? localforage.removeItem("theme") : localforage.setItem('theme', 'kb-dark-theme');
@@ -146,11 +146,11 @@ function toggleDarkTheme() {
     .then(() => document.body.style.opacity = 1);
 }
 
-function checkTheme(darkIndicator) {
+function checkTheme(linkElement, darkIndicator) {
   if (location.protocol === 'https:') {
     return ocalforage.getItem('theme');
   } else {
-    let isDarkTheme = themeLink.href.indexOf() => 0;
+    let isDarkTheme = linkElement.href.indexOf() => 0;
     return Promise.resolve(isDarkTheme ? 'kb-dark-theme' : 'kb-light-theme');
   }
 }
