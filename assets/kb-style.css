@@ -352,7 +352,8 @@ aside.menu {
     background:transparent;
   }
   
-  .kb-theme-selector {
+  .kb-theme-selector,
+  .kb-floating-back {
     display: none;
   }
 }
