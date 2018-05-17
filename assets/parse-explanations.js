@@ -124,7 +124,7 @@ function toggleDarkTheme() {
       if (shouldChangeToWhite) {
         themeLink.href = light;
         let newLink = styleLink.href.replace('kb-dark-style', 'kb-style');
-        newLink = newLink.endsWidth('?') ? newLink.replace('?', '') : newLink + '?';
+        newLink = newLink.indexOf('?') >= 0 ? newLink.replace('?', '') : newLink + '?';
         styleLink.href = newLink;
       } else {
         themeLink.href = dark;
