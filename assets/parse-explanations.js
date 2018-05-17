@@ -112,7 +112,7 @@ function toggleDarkTheme() {
   const light = '//unpkg.com/bulmaswatch/default/bulmaswatch.min.css';
 
   localforage.getItem('theme')
-    .then((theme) => theme !== 'kb-dark-theme')
+    .then((theme) => theme === 'kb-dark-theme')
     .then((shouldChangeToWhite) => {
       if (shouldChangeToWhite) {
         themeLink.href = dark;
