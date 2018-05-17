@@ -110,6 +110,8 @@ function toggleDarkTheme() {
   const themeLink = document.getElementById('bulma-theme');
   const dark = '//unpkg.com/bulmaswatch/superhero/bulmaswatch.min.css';
   const light = '//unpkg.com/bulmaswatch/default/bulmaswatch.min.css';
+  
+  const styleLink = document.getElementById('kb-style');
 
   localforage.getItem('theme')
     .then((theme) => theme === 'kb-dark-theme')
@@ -121,8 +123,10 @@ function toggleDarkTheme() {
     .then((shouldChangeToWhite) => {
       if (shouldChangeToWhite) {
         themeLink.href = light;
+        styleLink.href = styleLink.href.replace('kb-style', 'kb-dark-style');
       } else {
         themeLink.href = dark;
+        styleLink.href = styleLink.href.endsWidth('?') ? styleLink.href.replace('?', '') : styleLink.href + '?';
       }
     })
 }
