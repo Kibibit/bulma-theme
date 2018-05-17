@@ -112,6 +112,7 @@ function toggleDarkTheme() {
   const light = '//unpkg.com/bulmaswatch/default/bulmaswatch.min.css';
   
   const styleLink = document.getElementById('kb-style');
+  const highlightStyleLink = document.getElementById('kb-highlight');
 
   localforage.getItem('theme')
     .then((theme) => theme === 'kb-dark-theme')
@@ -134,9 +135,11 @@ function toggleDarkTheme() {
         let newLink = styleLink.href.replace('kb-dark-style', 'kb-style');
         newLink = newLink.indexOf('?') >= 0 ? newLink.replace('?', '') : newLink + '?';
         styleLink.href = newLink;
+        highlightStyleLink.href = highlightStyleLink.href.replace(/\/styles\/.*$/, '/styles/github.css');
       } else {
         themeLink.href = dark;
         styleLink.href = styleLink.href.replace('kb-style', 'kb-dark-style');
+        highlightStyleLink.href = highlightStyleLink.href.replace(/\/styles\/.*$/, '/styles/dracula.css');
       }
     })
     .then(delayPromise(700))
