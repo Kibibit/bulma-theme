@@ -121,7 +121,11 @@ function toggleDarkTheme() {
       return shouldChangeToWhite;
     })
     .then((shouldChangeToWhite) => {
+      document.body.style.transition = 'opacity 250ms';
+      document.body.style.opacity = 0;
+
       if (shouldChangeToWhite) {
+        
         themeLink.href = light;
         let newLink = styleLink.href.replace('kb-dark-style', 'kb-style');
         newLink = newLink.indexOf('?') >= 0 ? newLink.replace('?', '') : newLink + '?';
@@ -130,5 +134,9 @@ function toggleDarkTheme() {
         themeLink.href = dark;
         styleLink.href = styleLink.href.replace('kb-style', 'kb-dark-style');
       }
+    
+      setTimeout(() => {
+        document.body.style.opacity = 1;
+      }, 500);
     })
 }
