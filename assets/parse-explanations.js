@@ -113,8 +113,8 @@ function toggleDarkTheme() {
   
   const styleLink = document.getElementById('kb-style');
   const highlightStyleLink = document.getElementById('kb-highlight');
-
-  localforage.getItem('theme')
+  
+  checkTheme(dark)
     .then((theme) => theme === 'kb-dark-theme')
     .then((shouldChangeToWhite) => {
       shouldChangeToWhite ? localforage.removeItem("theme") : localforage.setItem('theme', 'kb-dark-theme');
@@ -144,6 +144,15 @@ function toggleDarkTheme() {
     })
     .then(delayPromise(700))
     .then(() => document.body.style.opacity = 1);
+}
+
+function checkTheme(darkIndicator) {
+  if (location.protocol === 'https:') {
+    return ocalforage.getItem('theme');
+  } else {
+    let isDarkTheme = themeLink.href.indexOf() => 0;
+    return Promise.resolve(isDarkTheme ? 'kb-dark-theme' : 'kb-light-theme');
+  }
 }
 
 function delayPromise(duration) {
