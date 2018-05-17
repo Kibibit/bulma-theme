@@ -123,7 +123,11 @@ function toggleDarkTheme() {
     .then((shouldChangeToWhite) => {
       document.body.style.transition = 'opacity 250ms';
       document.body.style.opacity = 0;
-
+    
+      return shouldChangeToWhite;
+    })
+    .then(delayPromise(250))
+    .then((shouldChangeToWhite) => {
       if (shouldChangeToWhite) {
         
         themeLink.href = light;
@@ -134,9 +138,17 @@ function toggleDarkTheme() {
         themeLink.href = dark;
         styleLink.href = styleLink.href.replace('kb-style', 'kb-dark-style');
       }
-    
-      setTimeout(() => {
-        document.body.style.opacity = 1;
-      }, 500);
     })
+    .then(delayPromise(500))
+    .then(() => document.body.style.opacity = 1);
+}
+
+function delayPromise(duration) {
+  return function(...args){
+    return new Promise(function(resolve, reject){
+      setTimeout(function(){
+        resolve(...args);
+      }, duration)
+    });
+  };
 }
