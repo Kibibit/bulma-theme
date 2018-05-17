@@ -123,10 +123,12 @@ function toggleDarkTheme() {
     .then((shouldChangeToWhite) => {
       if (shouldChangeToWhite) {
         themeLink.href = light;
-        styleLink.href = styleLink.href.replace('kb-style', 'kb-dark-style');
+        let newLink = styleLink.href.replace('kb-dark-style', 'kb-style');
+        newLink = newLink.endsWidth('?') ? newLink.replace('?', '') : newLink + '?';
+        styleLink.href = newLink;
       } else {
         themeLink.href = dark;
-        styleLink.href = styleLink.href.endsWidth('?') ? styleLink.href.replace('?', '') : styleLink.href + '?';
+        styleLink.href = styleLink.href.replace('kb-style', 'kb-dark-style');
       }
     })
 }
