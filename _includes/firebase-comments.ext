@@ -118,7 +118,7 @@ $(document).ready(function () {
     var messageComment = message.comment;
 
     fbUsers.child(message.uid).once('value', function (userSnap) {
-      var user = userSnap.val();
+      var user = userSnap.val() || {};
 
       // this is not working with an id reference to a template (possibly because it's 6 year old code), so give it the html instead
       var commentHtml = `
