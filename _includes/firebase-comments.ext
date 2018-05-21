@@ -117,7 +117,7 @@ $(document).ready(function () {
     var message = snapshot.val();
     var messageComment = message.comment;
 
-    fb.child("users/" + message.uid).once('value', function (userSnap) {
+    fbUsers.child(message.uid).once('value', function (userSnap) {
       var user = userSnap.val();
 
       // this is not working with an id reference to a template (possibly because it's 6 year old code), so give it the html instead
