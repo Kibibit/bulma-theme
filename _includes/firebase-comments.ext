@@ -37,7 +37,8 @@ $(document).ready(function () {
           uid: user.uid,
           email: user.email,
           provider: user.providerData[0].providerId,
-          displayName: user.displayName
+          displayName: user.displayName,
+          picture: user.photoURL
         };
 
       if (onLogin) {
