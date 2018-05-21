@@ -1,5 +1,6 @@
 importScripts('localforage.min.js');
 
+
 (function() {
 
   // Update 'version' if you need to refresh the cache
@@ -57,28 +58,29 @@ importScripts('localforage.min.js');
     }
 
     // For HTML requests, try the network first, fall back to the cache, finally the offline page
-    if (request.headers.get('Accept').indexOf('text/html') !== -1) {
+//     if (request.headers.get('Accept').indexOf('text/html') !== -1) {
       event.respondWith(
         Promise.resolve()
-        .then(() => request.url.contains('/bulmaswatch/'))
+        .then(() => request && request.url ? request.url.indexOf('/bulmaswatch/') >= 0 || request.url.indexOf('kb-style.css') >= 0 || request.url.indexOf('highlight.js') >= 0 : false)
         .then((shouldChange) => shouldChange ? localforage.getItem('theme').then((theme) => createNewThemeRequest(theme, request)) : request)
-        .then((newRequest) => fetch(request))
+        .then((newRequest) => fetch(newRequest))
       );
       return;
-    }
+//     }
   });
 
 })();
 
 function createNewThemeRequest(theme, request) {
   if (theme === 'kb-dark-theme') {
+    
+    let newUrl = request.url
+      .replace('bulmaswatch/default/', 'bulmaswatch/superhero/')
+      .replace('kb-style.css', 'kb-dark-style.css')
+      .replace(/\/styles\/.*$/, '/styles/dracula.css');
 
-    let darkThemeRequest = new Request(request.url.replace('bulmaswatch/default/', 'bulmaswatch/superhero/'), {
-      method: request.method,
-      headers: request.headers,
-      mode: 'same-origin',
-      credentials: request.credentials,
-      redirect: 'manual'
+    let darkThemeRequest = new Request(newUrl, {
+      method: request.method
     });
 
     return darkThemeRequest;
