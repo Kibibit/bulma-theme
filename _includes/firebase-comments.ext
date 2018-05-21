@@ -59,11 +59,11 @@ $(document).ready(function () {
           default:
             console.log("unknown user provider " + onLogin.additionalUserInfo.providerId);
         }
-      }
 
-      // User authenticated with Firebase
-      // Store user data in Firebase so we can display it on the comments
-      writeUserData(currentUser);
+        // User authenticated with Firebase for the first time!
+        // Store user data in Firebase so we can display it on the comments
+        writeUserData(currentUser);
+      }
 
       $("#fbc-login-buttons").hide();
       $("#fbc-comment-form").show();
@@ -116,7 +116,7 @@ $(document).ready(function () {
     var message = snapshot.val();
     var messageComment = message.comment;
 
-    fbUsers.child(message.uid).once('value', function (userSnap) {
+    database.ref('users/' + message.uid).once('value', function (userSnap) {
       var user = userSnap.val() || {};
 
       // this is not working with an id reference to a template (possibly because it's 6 year old code), so give it the html instead
