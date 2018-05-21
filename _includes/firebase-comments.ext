@@ -24,7 +24,6 @@ $(document).ready(function () {
   const database = firebase.database();
   const fbPostComments = database.ref('posts/' + postId);
   const fbPostCommentCount = database.ref('comment-counts/' + postId);
-  const fbUsers = database.ref('users');
 
   let currentUser = null;
   let onLogin = null;
@@ -64,7 +63,7 @@ $(document).ready(function () {
 
       // User authenticated with Firebase
       // Store user data in Firebase so we can display it on the comments
-      fbUsers.child(currentUser.uid).set(currentUser);
+      writeUserData(currentUser);
 
       $("#fbc-login-buttons").hide();
       $("#fbc-comment-form").show();
@@ -136,6 +135,10 @@ $(document).ready(function () {
   fbPostCommentCount.on('value', function (snapshot) {
     $('#fbc-comment-count').text(snapshot.val());
   });
+
+  function writeUserData(user) {
+    database.ref('users/' + user.uid).set(user);
+  }
 
   // Scrub user generated input before displaying
   function scrubComment(value) {
