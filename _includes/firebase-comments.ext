@@ -63,7 +63,7 @@ $(document).ready(function () {
 
       // User authenticated with Firebase
       // Store user data in Firebase so we can display it on the comments
-      fbUsers.child(currentUser.uid).set(currentUser);
+      // fbUsers.child(currentUser.uid).set(currentUser);
 
       $("#fbc-login-buttons").hide();
       $("#fbc-comment-form").show();
