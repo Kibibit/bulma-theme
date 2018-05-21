@@ -54,7 +54,7 @@ $(document).ready(function () {
             currentUser.link = "http://twitter.com/" + onLogin.additionalUserInfo.screen_name;
             break;
           case "github.com":
-            currentUser.link = onLogin.additionalUserInfo.html_url;
+            currentUser.link = onLogin.additionalUserInfo.profile.html_url;
             break;
           default:
             console.log("unknown user provider " + onLogin.additionalUserInfo.providerId);
