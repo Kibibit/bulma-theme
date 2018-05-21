@@ -121,12 +121,13 @@ $(document).ready(function () {
       var user = userSnap.val();
 
       // this is not working with an id reference to a template (possibly because it's 6 year old code), so give it the html instead
-      var commentHtml = tmpl($('#fbc-comment-template').html(), {
-        comment: scrubComment(messageComment),
-        displayName: scrubComment(user.displayName),
-        picture: scrubComment(user.picture),
-        link: scrubComment(user.link)
-      });
+      var commentHtml = `
+      <div>
+        <a href="${scrubComment(user.link)}"><img src="${ scrubComment(user.picture) }" style="height: 64px; width: 64px;"></a>
+        <a href="${scrubComment(user.link)}">${ scrubComment(user.displayName) }</a>
+        <p>${ scrubComment(messageComment) }</p>
+      </div>
+      `;
 
       $('#fbc-comments-list').append(commentHtml);
     })
@@ -135,6 +136,14 @@ $(document).ready(function () {
   fbPostCommentCount.on('value', function (snapshot) {
     $('#fbc-comment-count').text(snapshot.val());
   });
+
+  // Scrub user generated input before displaying
+  function scrubComment(value) {
+    // prevent XSS
+    var escaped = $('<div/>').text(value).html();
+    //Replace newlines with line breaks
+    return escaped.replace(/[\n\r]/g, "<br />");
+  }
 
   // sign in
   function signInUsing(providerName) {
