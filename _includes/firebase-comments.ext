@@ -27,16 +27,38 @@ $(document).ready(function () {
   const fbUsers = database.ref('users');
 
   let currentUser = null;
+  let onLogin = null;
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // currentUser.picture = user.thirdPartyUserData.avatar_url;
       // currentUser.link = user.thirdPartyUserData.html_url;
+      currentUser = {
+          uid: user.uid,
+          email: user.email,
+          provider: user.providerData[0].providerId,
+          displayName: user.displayName
+        };
 
-      if (!currentUser) {
-        console.log('no user found!');
-      } else {
-        console.log(currentUser);
+      if (onLogin) {
+        // Normalize the pictures and links across services
+        switch (onLogin.additionalUserInfo.providerId) {
+          case "google.com":
+            currentUser.link = '';
+            currentUser.
+            break;
+          case "facebook.com":
+            currentUser.link = '';
+            break;
+          case "twitter.com":
+            currentUser.link = "http://twitter.com/" + onLogin.additionalUserInfo.screen_name;
+            break;
+          case "github.com":
+            currentUser.link = onLogin.additionalUserInfo.html_url;
+            break;
+          default:
+            console.log("unknown user provider " + onLogin.additionalUserInfo.providerId);
+        }
       }
 
       // User authenticated with Firebase
@@ -121,7 +143,8 @@ $(document).ready(function () {
       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
       var token = result.credential.accessToken;
       // The signed-in user info.
-      currentUser = result.user;
+      onLogin = result.user;
+      onLogin.additionalUserInfo = result.additionalUserInfo;
       // ...
     }).catch(function(error) {
       // Handle Errors here.
