@@ -30,27 +30,13 @@ $(document).ready(function () {
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      // User is signed in.
-      // Normalize the pictures and links across services
-      switch (user.provider) {
-        case "google":
-          currentUser.picture = user.thirdPartyUserData.picture;
-          currentUser.link = user.thirdPartyUserData.link;
-          break;
-        case "facebook":
-          currentUser.picture = user.thirdPartyUserData.picture.data.url;
-          currentUser.link = user.thirdPartyUserData.link;
-          break;
-        case "twitter":
-          currentUser.picture = user.thirdPartyUserData.profile_image_url;
-          currentUser.link = "http://twitter.com/" + user.thirdPartyUserData.screen_name;
-          break;
-        case "github":
-          currentUser.picture = user.thirdPartyUserData.avatar_url;
-          currentUser.link = user.thirdPartyUserData.html_url;
-          break;
-        default:
-          console.log("unknown user provider " + user.provider);
+      // currentUser.picture = user.thirdPartyUserData.avatar_url;
+      // currentUser.link = user.thirdPartyUserData.html_url;
+
+      if (!currentUser) {
+        console.log('no user found!');
+      } else {
+        console.log(currentUser);
       }
 
       // User authenticated with Firebase
@@ -135,7 +121,7 @@ $(document).ready(function () {
       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
       var token = result.credential.accessToken;
       // The signed-in user info.
-      var user = result.user;
+      currentUser = result.user;
       // ...
     }).catch(function(error) {
       // Handle Errors here.
