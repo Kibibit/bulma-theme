@@ -1,3 +1,14 @@
+.comments-section:before {
+  content: '';
+  position:  absolute;
+  top: 0;
+  background: rgba(78,93,108,.5);
+  height: 1px;
+  display: block;
+  right: 1.5rem;
+  left: 1.5rem;
+}
+
 [data-action="like"] {
   margin: 5px;
   padding: 5px;
