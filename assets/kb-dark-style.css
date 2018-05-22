@@ -1,3 +1,7 @@
+#login-to-comment a {
+    display: none;
+}
+
 html .kb-row .kb-menu {
   background-color: #2b3e50;
 }
