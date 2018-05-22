@@ -28,7 +28,7 @@
             {{ content }}
           </section>
           {% if site.fb_apiKey and site.fb_authDomain and site.fb_databaseURL and site.fb_projectId and site.fb_storageBucket and site.fb_messagingSenderId and site.name and page.id %}
-          <section class="section">
+          <section class="section comments-section">
             {% if site.enable_likes %}{% include likable.html %}{% endif %}
             {% include firebase-comments.ext %}
           </section>
