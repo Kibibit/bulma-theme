@@ -64,7 +64,10 @@ $(document).ready(function () {
         // Store user data in Firebase so we can display it on the comments
         writeUserData(currentUser);
       }
-
+      
+      // replace with user photo
+      $('#fbc-current-user-photo').attr('src', currentUser.picture);
+      
       $("#fbc-login-buttons").hide();
       $("#fbc-comment-form").show();
     } else {
