@@ -19,8 +19,8 @@ const twitterProvider = new firebase.auth.TwitterAuthProvider();
 const githubProvider = new firebase.auth.GithubAuthProvider();
 
 $(document).ready(function () {
-  const postId = '{{page.id || default}}';
-  const blogName = '{{site.name || default}}';
+  const postId = '{{ page.id || default }}';
+  const blogName = '{{ site.name || default }}';
   const database = firebase.database();
   const fbPostComments = database.ref('posts/' + postId);
   const fbPostCommentCount = database.ref('comment-counts/' + postId);
