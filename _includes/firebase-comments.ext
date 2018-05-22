@@ -121,11 +121,22 @@ $(document).ready(function () {
 
       // this is not working with an id reference to a template (possibly because it's 6 year old code), so give it the html instead
       var commentHtml = `
-      <div>
-        <a href="${scrubComment(user.link)}"><img src="${ scrubComment(user.picture) }" style="height: 64px; width: 64px;"></a>
-        <a href="${scrubComment(user.link)}">${ scrubComment(user.displayName) }</a>
-        <p>${ scrubComment(messageComment) }</p>
-      </div>
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="${ scrubComment(user.picture) }">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>${ scrubComment(user.displayName) }</strong> <!-- <small>@johnsmith</small> <small>31m</small> -->
+              <br>
+              ${ scrubComment(messageComment) }
+            </p>
+          </div>
+        </div>
+      </article>
       `;
 
       $('#fbc-comments-list').append(commentHtml);
