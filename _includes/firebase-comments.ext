@@ -24,6 +24,8 @@ $(document).ready(function () {
   const database = firebase.database();
   const fbPostComments = database.ref('posts/' + postId);
   const fbPostCommentCount = database.ref('comment-counts/' + postId);
+  const fbPostLikesCount = database.ref('likes-counts/' + postId);
+  const fbPostLikes = database.ref('likes/' + postId);
 
   let currentUser = null;
   let onLogin = null;
@@ -95,6 +97,20 @@ $(document).ready(function () {
     }).catch(function(error) {
       console.error(error);
       // An error happened.
+    });
+  });
+  
+  // TODO(thatkookooguy): check out https://stackoverflow.com/a/37910159/1788884 to check if user already liked a post
+  $('[data-action="like"]').click(function (event) {
+    fbPostLikes.push(currentUser.uid, function (error) {
+      if (error != null) {
+        alert(error.message + ' in likes');
+      } else {
+        // like was posted. Increment the likes count
+        fbPostLikesCount.transaction(function (current_value) {
+          return (current_value || 0) + 1;
+        });
+      }
     });
   });
 
