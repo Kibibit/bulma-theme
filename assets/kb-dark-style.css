@@ -1,5 +1,6 @@
 #login-to-comment a,
-#comments a {
+#comments a,
+#new-comment a {
     display: none;
 }
 
