@@ -1,3 +1,7 @@
+.comments-title {
+  margin-top: .8em;
+}
+
 .comments-section {
   position: relative;
 }
@@ -35,7 +39,8 @@
 
 #login-to-comment a,
 #comments a,
-#new-comment a {
+#new-comment a,
+.comments-title a {
   display: none;
 }
 
