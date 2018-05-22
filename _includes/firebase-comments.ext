@@ -3,12 +3,12 @@
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyB0PQfBjjSoYbjQz_JSOwXU0YvAu057F5Q",
-    authDomain: "kibibit-post-comments.firebaseapp.com", // {{site.fbc-comments-firebase}}
-    databaseURL: "https://kibibit-post-comments.firebaseio.com",
-    projectId: "kibibit-post-comments",
-    storageBucket: "kibibit-post-comments.appspot.com",
-    messagingSenderId: "585085512877"
+    apiKey: "{{ site.fb_apiKey }}",
+    authDomain: "{{ site.fb_authDomain }}",
+    databaseURL: "{{ site.fb_databaseURL }}",
+    projectId: "{{ site.fb_projectId }}",
+    storageBucket: "{{ site.fb_storageBucket }}",
+    messagingSenderId: "{{ site.fb_messagingSenderId }}"
   };
   firebase.initializeApp(config);
 </script>
