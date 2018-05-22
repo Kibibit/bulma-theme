@@ -390,7 +390,8 @@ aside.menu {
   }
   
   .kb-theme-selector,
-  .kb-floating-back {
+  .kb-floating-back,
+  .comments-section {
     display: none;
   }
 }
