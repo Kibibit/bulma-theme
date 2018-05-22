@@ -1,4 +1,5 @@
-#login-to-comment a {
+#login-to-comment a,
+#comments a {
     display: none;
 }
 
