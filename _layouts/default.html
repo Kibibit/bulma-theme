@@ -27,9 +27,11 @@
           <section class="section">
             {{ content }}
           </section>
+          {% if site.fb_apiKey and site.fb_authDomain and site.fb_databaseURL and site.fb_projectId and site.fb_storageBucket and site.fb_messagingSenderId and site.name and page.id %}
           <section class="section">
             {% include firebase-comments.ext %}
           </section>
+          {% endif %}
         </div>
       </div>
     </div>
