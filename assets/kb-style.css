@@ -1,3 +1,7 @@
+.comments-section {
+  position: relative;
+}
+
 .comments-section:before {
   content: '';
   position:  absolute;
