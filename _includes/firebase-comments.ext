@@ -155,7 +155,7 @@ $(document).ready(function () {
   });
 
   fbPostCommentCount.on('value', function (snapshot) {
-    $('#fbc-comment-count').text(snapshot.val());
+    $('#fbc-comment-count').text(snapshot.val() || 0);
   });
 
   function writeUserData(user) {
