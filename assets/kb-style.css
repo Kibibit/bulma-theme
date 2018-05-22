@@ -1,3 +1,7 @@
+#login-to-comment a {
+    display: none;
+}
+
 html #kb-sun {
   background-color: var(--main-color);
   color: white;
