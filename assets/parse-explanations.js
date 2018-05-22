@@ -1,6 +1,6 @@
-$(document).ready(function() {
-  anchors.add();
-  
+anchors.add();
+
+$(document).ready(function() {  
   kbCodeSnippet();
   
   const definitionsElement = $('.kb-definitions');
