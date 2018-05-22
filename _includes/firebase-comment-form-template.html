@@ -1,7 +1,9 @@
 <div id="fbc-comment-form" style="display: none;">
-  <button id="fbc-logout">Logout</button>
+  <a id="fbc-logout" class="button is-small">
+    <span>Logout</span>
+  </a>
   <h4><span id="fbc-comment-count"></span> Comments</h4>
-  <article class="media">
+  <article class="media" style="margin-bottom: 20px;">
     <figure class="media-left">
       <p class="image is-64x64">
         <img src="https://bulma.io/images/placeholders/128x128.png">
@@ -26,10 +28,32 @@
 
 <div id="fbc-login-buttons" style="display: none;">
   <h4>Login to comment</h4>
-  <button data-auth-provider="google">Google</button>
-  <button data-auth-provider="facebook">Facebook</button>
-  <button data-auth-provider="twitter">Twitter</button>
-  <button data-auth-provider="github">GitHub</button>
+  <div class="buttons">
+    <a class="button is-small" data-auth-provider="google" style="display: none;">
+      <span class="icon is-small">
+        <i class="fab fa-github"></i>
+      </span>
+      <span>Google</span>
+    </a>
+    <a class="button is-small" data-auth-provider="facebook" style="display: none;">
+      <span class="icon is-small">
+        <i class="fab fa-github"></i>
+      </span>
+      <span>Facebook</span>
+    </a>
+    <a class="button is-small" data-auth-provider="twitter" style="display: none;">
+      <span class="icon is-small">
+        <i class="fab fa-github"></i>
+      </span>
+      <span>Twitter</span>
+    </a>
+    <a class="button is-small" data-auth-provider="github">
+      <span class="icon is-small">
+        <i class="fab fa-github"></i>
+      </span>
+      <span>GitHub</span>
+    </a>
+  </div>
 </div>
 
 <div id="fbc-comments-list"></div>
