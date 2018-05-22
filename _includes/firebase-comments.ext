@@ -99,7 +99,7 @@ $(document).ready(function () {
     // re-enable the submit button
     $('#fbc-comment-form-submit').prop('disabled', false);
 
-    fbPostComments.push({'uid': currentUser.uid, 'comment': comment}, function (error) {
+    fbPostComments.push({'uid': currentUser.uid, 'comment': comment, timestamp: moment().format("YYYY-MM-DD[T]HH:mm:ss.SSS")}, function (error) {
       if (error != null) {
         alert(error.message + " Stop screwing around!")
       } else {
@@ -115,6 +115,7 @@ $(document).ready(function () {
   fbPostComments.on('child_added', function (snapshot) {
     var message = snapshot.val();
     var messageComment = message.comment;
+    var messageTimestamp = moment(message.timestamp).fromNow();
 
     database.ref('users/' + message.uid).once('value', function (userSnap) {
       var user = userSnap.val() || {};
@@ -130,7 +131,7 @@ $(document).ready(function () {
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>${ scrubComment(user.displayName) }</strong> <!-- <small>@johnsmith</small> <small>31m</small> -->
+              <strong>${ scrubComment(user.displayName) }</strong> <!-- <small>@johnsmith</small> --><small>${ messageTimestamp }</small> 
               <br>
               ${ scrubComment(messageComment) }
             </p>
@@ -191,8 +192,5 @@ $(document).ready(function () {
     throw new Error('unknown provider: ' + providerName);
   }
 });
-</script>
-<script type="application/vnd.fbc-template" id="fbc-comment-template">
-  {% include firebase-comment-template.html %}
 </script>
 {% include firebase-comment-form-template.html %}
