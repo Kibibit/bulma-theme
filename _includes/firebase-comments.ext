@@ -88,7 +88,14 @@ $(document).ready(function () {
 
   // Handle logout
   $('#fbc-logout').click(function (event) {
-    firebase.auth().logout();
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      // most of the visual queues should be handed by
+      // firebase.auth().onAuthStateChanged
+    }).catch(function(error) {
+      console.error(error);
+      // An error happened.
+    });
   });
 
   // Handle insertions
